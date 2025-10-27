@@ -1,527 +1,689 @@
-[
-    {
+ {
         "id": 1,
-        "name": "Embalagem Primaria (Escritorio da produção)",
-        "assetTag": "",
+        "name": "Escritorio",
         "serial": "BRBSR7409G",
         "model": "HP LaserJet Pro",
-        "location": "Fábrica",
+        "location": "São Paulo",
         "ip": "10.202.171.1",
-        "status": "online",
+        "status": "alerta",
         "toners": [
             {
                 "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 50
+                "level": 1
             },
             {
                 "name": "Magenta",
                 "color": "#FF1493",
-                "level": 100
+                "level": 17
             },
             {
                 "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 100
+                "level": 62
             },
             {
                 "name": "Preto",
                 "color": "#000000",
-                "level": 80
+                "level": 9
             },
             {
                 "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 100
+                "level": 2
             },
             {
                 "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 21
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:44",
+        "lastUpdate": "2025-10-27 14:46:42",
         "errorMessage": null
     },
     {
         "id": 2,
-        "name": "Escritório gerencial",
-        "assetTag": "",
+        "name": "Escritório Logistico",
         "serial": "BRBSR7407R",
         "model": "HP LaserJet Pro",
-        "location": "Fábrica",
+        "location": "São Paulo",
         "ip": "10.202.171.2",
-        "status": "online",
+        "status": "alerta",
         "toners": [
             {
                 "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 100
+                "level": 88
             },
             {
                 "name": "Magenta",
                 "color": "#FF1493",
-                "level": 30
+                "level": 0
             },
             {
                 "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 100
+                "level": 47
             },
             {
                 "name": "Preto",
                 "color": "#000000",
-                "level": 50
+                "level": 60
             },
             {
                 "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 90
+                "level": 40
             },
             {
                 "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 69
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:45",
+        "lastUpdate": "2025-10-27 15:19:42",
         "errorMessage": null
     },
     {
         "id": 3,
-        "name": "Embalagem secundária",
-        "assetTag": "",
+        "name": "RH",
         "serial": "BRBSR740FR",
         "model": "HP LaserJet Pro",
-        "location": "Fábrica",
+        "location": "São Paulo",
         "ip": "10.202.171.3",
-        "status": "online",
+        "status": "alerta",
         "toners": [
             {
                 "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 30
+                "level": 14
             },
             {
                 "name": "Magenta",
                 "color": "#FF1493",
-                "level": 30
+                "level": 18
             },
             {
                 "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 20
+                "level": 10
             },
             {
                 "name": "Preto",
                 "color": "#000000",
-                "level": 100
+                "level": 67
             },
             {
                 "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 100
+                "level": 42
             },
             {
                 "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 16
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:46",
+        "lastUpdate": "2025-10-27 15:50:42",
         "errorMessage": null
     },
     {
         "id": 4,
-        "name": "Almoxerifado",
-        "assetTag": "",
+        "name": "Galpão 1",
         "serial": "BRBSR740FV",
         "model": "HP LaserJet Pro",
-        "location": "Fábrica",
+        "location": "Alphaville",
         "ip": "10.202.171.4",
         "status": "online",
         "toners": [
             {
                 "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 50
+                "level": 11
             },
             {
                 "name": "Magenta",
                 "color": "#FF1493",
-                "level": 50
+                "level": 45
             },
             {
                 "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 40
+                "level": 53
             },
             {
-                "name": "Cartucho nÃ£o-HP Preto",
+                "name": "Preto",
                 "color": "#000000",
-                "level": 100
+                "level": 49
             },
             {
                 "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 100
+                "level": 62
             },
             {
                 "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 15
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:48",
+        "lastUpdate": "2025-10-27 14:46:42",
         "errorMessage": null
     },
     {
         "id": 5,
-        "name": "LAB / CQ (3° andar lado direito)",
-        "assetTag": "",
+        "name": "Galpão 2",
         "serial": "BRBSR7404Z",
         "model": "HP LaserJet Pro",
-        "location": "Fábrica",
+        "location": "Alphaville",
         "ip": "10.202.171.5",
         "status": "online",
         "toners": [
             {
                 "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 70
+                "level": 29
             },
             {
                 "name": "Magenta",
                 "color": "#FF1493",
-                "level": 70
+                "level": 58
             },
             {
                 "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 70
+                "level": 52
             },
             {
                 "name": "Preto",
                 "color": "#000000",
-                "level": 40
+                "level": 41
             },
             {
                 "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 60
+                "level": 33
             },
             {
                 "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 5
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:48",
+        "lastUpdate": "2025-10-27 14:47:42",
         "errorMessage": null
     },
     {
         "id": 6,
-        "name": "Escritorio / CQ (2° andar)",
-        "assetTag": "",
+        "name": "Almoxerifado",
         "serial": "BRBSR7405R",
         "model": "HP LaserJet Pro",
-        "location": "Fábrica",
+        "location": "São Paulo",
         "ip": "10.202.171.6",
         "status": "online",
         "toners": [
             {
                 "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 70
+                "level": 88
             },
             {
                 "name": "Magenta",
                 "color": "#FF1493",
-                "level": 70
+                "level": 84
             },
             {
                 "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 50
+                "level": 85
             },
             {
                 "name": "Preto",
                 "color": "#000000",
-                "level": 80
+                "level": 11
             },
             {
                 "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 70
+                "level": 35
             },
             {
                 "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 90
+                "level": 27
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:49",
+        "lastUpdate": "2025-10-27 15:35:42",
         "errorMessage": null
     },
     {
         "id": 7,
-        "name": "Sala Garantia de Qualidade",
-        "assetTag": "",
+        "name": "Laboratorio",
         "serial": "MXBCQC9018",
         "model": "HP LaserJet Pro",
-        "location": "Fábrica",
+        "location": "São Paulo",
         "ip": "10.202.171.7",
-        "status": "alerta",
-        "toners": [
-            {
-                "name": "Yellow Cartridge",
-                "color": "#FFD700",
-                "level": 20
-            },
-            {
-                "name": "Magenta Cartridge",
-                "color": "#FF1493",
-                "level": 20
-            },
-            {
-                "name": "Cyan Cartridge",
-                "color": "#00BFFF",
-                "level": 90
-            },
-            {
-                "name": "Black Cartridge",
-                "color": "#000000",
-                "level": 0
-            }
-        ],
-        "lastUpdate": "2025-10-20 15:20:50",
-        "errorMessage": null
-    },
-    {
-        "id": 8,
-        "name": "LAB / CQ (3° andar lado esquerdo )",
-        "assetTag": "",
-        "serial": "BRBSR74075",
-        "model": "HP LaserJet Pro",
-        "location": "Fábrica",
-        "ip": "10.202.171.8",
         "status": "alerta",
         "toners": [
             {
                 "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 0
+                "level": 71
             },
             {
                 "name": "Magenta",
                 "color": "#FF1493",
-                "level": 0
+                "level": 35
             },
             {
                 "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 0
+                "level": 5
             },
             {
                 "name": "Preto",
                 "color": "#000000",
-                "level": 90
+                "level": 30
             },
             {
                 "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 80
+                "level": 68
             },
             {
                 "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 32
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:52",
+        "lastUpdate": "2025-10-27 15:16:42",
+        "errorMessage": null
+    },
+    {
+        "id": 8,
+        "name": "TI",
+        "serial": "BRBSR74075",
+        "model": "HP LaserJet Pro",
+        "location": "São Paulo",
+        "ip": "10.202.171.8",
+        "status": "online",
+        "toners": [
+            {
+                "name": "Amarelo",
+                "color": "#FFD700",
+                "level": 67
+            },
+            {
+                "name": "Magenta",
+                "color": "#FF1493",
+                "level": 23
+            },
+            {
+                "name": "Ciano",
+                "color": "#00BFFF",
+                "level": 48
+            },
+            {
+                "name": "Preto",
+                "color": "#000000",
+                "level": 49
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
+                "level": 84
+            },
+            {
+                "name": "Kit do alimentador de documentos",
+                "color": "#A0A0A0",
+                "level": 2
+            }
+        ],
+        "lastUpdate": "2025-10-27 16:00:42",
         "errorMessage": null
     },
     {
         "id": 9,
         "name": "Marketing",
-        "assetTag": "",
         "serial": "BRBSR7406C",
         "model": "HP LaserJet Pro",
-        "location": "Zhome",
+        "location": "São Paulo",
         "ip": "10.202.183.1",
-        "status": "online",
+        "status": "error",
         "toners": [
             {
-                "name": "Yellow Cartridge",
+                "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 20
+                "level": 68
             },
             {
-                "name": "Magenta Cartridge",
+                "name": "Magenta",
                 "color": "#FF1493",
-                "level": 70
+                "level": 47
             },
             {
-                "name": "Cyan Cartridge",
+                "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 80
+                "level": 83
             },
             {
-                "name": "Black Cartridge",
+                "name": "Preto",
                 "color": "#000000",
+                "level": 42
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
                 "level": 30
             },
             {
-                "name": "Fuser Kit",
-                "color": "#808080",
-                "level": 80
-            },
-            {
-                "name": "Document Feeder Kit",
+                "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 33
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:53",
-        "errorMessage": null
+        "lastUpdate": "2025-10-27 16:22:42",
+        "errorMessage": "Erro de conexão: HTTPConnectionPool(host='10.202.183.1', port=80): Timeout ao conectar."
     },
     {
         "id": 10,
-        "name": "Finanças-Regulátorio",
-        "assetTag": "",
+        "name": "Finanças",
         "serial": "MXBCQC9006",
         "model": "HP LaserJet Pro",
-        "location": "Zhome",
+        "location": "São Paulo",
         "ip": "10.202.183.2",
-        "status": "online",
+        "status": "alerta",
         "toners": [
             {
-                "name": "Yellow Cartridge",
+                "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 100
+                "level": 6
             },
             {
-                "name": "Magenta Cartridge",
+                "name": "Magenta",
                 "color": "#FF1493",
-                "level": 20
+                "level": 9
             },
             {
-                "name": "Cyan Cartridge",
+                "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 30
+                "level": 58
             },
             {
-                "name": "Black Cartridge",
+                "name": "Preto",
                 "color": "#000000",
-                "level": 20
+                "level": 37
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
+                "level": 11
+            },
+            {
+                "name": "Kit do alimentador de documentos",
+                "color": "#A0A0A0",
+                "level": 95
             }
         ],
-        "lastUpdate": "2025-10-20 15:20:54",
+        "lastUpdate": "2025-10-27 16:07:42",
         "errorMessage": null
     },
     {
         "id": 11,
-        "name": "Sala-DHL - Osasco",
+        "name": "Sala Lojistica",
+        "serial": "N/A",
+        "model": "HP LaserJet Pro",
+        "location": "Osasco",
         "ip": "10.202.191.1",
-        "status": "error",
-        "errorMessage": "Erro de conexão: HTTPConnectionPool(host='10.202.191.1', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x00000202CD0E3040>, 'Connection to 10.202.191.1 timed out. (connect timeout=10)'))",
-        "toners": [],
-        "lastUpdate": "2025-10-20 15:20:55"
+        "status": "online",
+        "toners": [
+            {
+                "name": "Amarelo",
+                "color": "#FFD700",
+                "level": 84
+            },
+            {
+                "name": "Magenta",
+                "color": "#FF1493",
+                "level": 93
+            },
+            {
+                "name": "Ciano",
+                "color": "#00BFFF",
+                "level": 94
+            },
+            {
+                "name": "Preto",
+                "color": "#000000",
+                "level": 21
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
+                "level": 7
+            },
+            {
+                "name": "Kit do alimentador de documentos",
+                "color": "#A0A0A0",
+                "level": 75
+            }
+        ],
+        "lastUpdate": "2025-10-27 15:28:42",
+        "errorMessage": null
     },
     {
         "id": 12,
-        "name": "Sala-DHL-Aparecida de Goiania",
-        "assetTag": "",
+        "name": "Escritorio ADM",
         "serial": "BRBSR6V0DF",
         "model": "HP LaserJet Pro",
-        "location": "Aparecida de Goiania",
+        "location": "Osasco",
         "ip": "10.203.7.1",
         "status": "online",
         "toners": [
             {
-                "name": "Yellow Cartridge",
+                "name": "Amarelo",
                 "color": "#FFD700",
-                "level": 70
+                "level": 85
             },
             {
-                "name": "Magenta Cartridge",
+                "name": "Magenta",
                 "color": "#FF1493",
-                "level": 60
+                "level": 45
             },
             {
-                "name": "Cyan Cartridge",
+                "name": "Ciano",
                 "color": "#00BFFF",
-                "level": 60
+                "level": 17
             },
             {
-                "name": "Black Cartridge",
+                "name": "Preto",
                 "color": "#000000",
-                "level": 50
+                "level": 76
             },
             {
-                "name": "Fuser Kit",
+                "name": "Kit do fusor",
                 "color": "#808080",
-                "level": 100
+                "level": 75
             },
             {
-                "name": "Document Feeder Kit",
+                "name": "Kit do alimentador de documentos",
                 "color": "#A0A0A0",
-                "level": 100
+                "level": 0
             }
         ],
-        "lastUpdate": "2025-10-20 15:21:06",
+        "lastUpdate": "2025-10-27 15:40:42",
         "errorMessage": null
     },
     {
         "id": 13,
-        "name": "ZebraLIMS01",
-        "assetTag": "",
+        "name": "ZebraGT800",
         "serial": "N/A",
         "model": "ZEBRA ZD230",
-        "location": "Fábrica",
+        "location": "Osasco",
         "ip": "10.202.171.9",
-        "status": "online",
-        "toners": [],
-        "lastUpdate": "2025-10-20 15:21:07",
-        "errorMessage": null
+        "status": "error",
+        "toners": [
+            {
+                "name": "Amarelo",
+                "color": "#FFD700",
+                "level": 68
+            },
+            {
+                "name": "Magenta",
+                "color": "#FF1493",
+                "level": 50
+            },
+            {
+                "name": "Ciano",
+                "color": "#00BFFF",
+                "level": 92
+            },
+            {
+                "name": "Preto",
+                "color": "#000000",
+                "level": 20
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
+                "level": 28
+            },
+            {
+                "name": "Kit do alimentador de documentos",
+                "color": "#A0A0A0",
+                "level": 93
+            }
+        ],
+        "lastUpdate": "2025-10-27 16:32:42",
+        "errorMessage": "Erro de conexão: HTTPConnectionPool(host='10.202.171.9', port=80): Timeout ao conectar."
     },
     {
         "id": 14,
-        "name": "Zebra ZT230 - ARMAZEM",
-        "assetTag": "",
+        "name": "Zebra ZT230",
         "serial": "N/A",
         "model": "ZEBRA ZT230",
-        "location": "Fábrica",
+        "location": "Osasco",
         "ip": "10.202.171.11",
-        "status": "online",
-        "toners": [],
-        "lastUpdate": "2025-10-20 15:21:07",
+        "status": "alerta",
+        "toners": [
+            {
+                "name": "Amarelo",
+                "color": "#FFD700",
+                "level": 5
+            },
+            {
+                "name": "Magenta",
+                "color": "#FF1493",
+                "level": 60
+            },
+            {
+                "name": "Ciano",
+                "color": "#00BFFF",
+                "level": 35
+            },
+            {
+                "name": "Preto",
+                "color": "#000000",
+                "level": 19
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
+                "level": 66
+            },
+            {
+                "name": "Kit do alimentador de documentos",
+                "color": "#A0A0A0",
+                "level": 78
+            }
+        ],
+        "lastUpdate": "2025-10-27 15:30:42",
         "errorMessage": null
     },
     {
         "id": 15,
-        "name": "Zebra ZM400 - Amostragem",
-        "assetTag": "",
+        "name": "Zebra ZM400",
         "serial": "N/A",
         "model": "Zebra ZM400",
-        "location": "Fábrica",
+        "location": "Osasco",
         "ip": "10.202.171.12",
         "status": "online",
-        "toners": [],
-        "lastUpdate": "2025-10-20 15:21:07",
+        "toners": [
+            {
+                "name": "Amarelo",
+                "color": "#FFD700",
+                "level": 82
+            },
+            {
+                "name": "Magenta",
+                "color": "#FF1493",
+                "level": 59
+            },
+            {
+                "name": "Ciano",
+                "color": "#00BFFF",
+                "level": 56
+            },
+            {
+                "name": "Preto",
+                "color": "#000000",
+                "level": 42
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
+                "level": 81
+            },
+            {
+                "name": "Kit do alimentador de documentos",
+                "color": "#A0A0A0",
+                "level": 32
+            }
+        ],
+        "lastUpdate": "2025-10-27 16:11:42",
         "errorMessage": null
     },
     {
         "id": 16,
-        "name": "Zebra GT800 - Embalagem primaria",
-        "assetTag": "",
+        "name": "Zebra GT800",
         "serial": "N/A",
         "model": "Zebra GT800",
-        "location": "Fábrica",
+        "location": "Osasco",
         "ip": "10.202.171.13",
         "status": "online",
-        "toners": [],
-        "lastUpdate": "2025-10-20 15:21:08",
+        "toners": [
+            {
+                "name": "Amarelo",
+                "color": "#FFD700",
+                "level": 60
+            },
+            {
+                "name": "Magenta",
+                "color": "#FF1493",
+                "level": 88
+            },
+            {
+                "name": "Ciano",
+                "color": "#00BFFF",
+                "level": 29
+            },
+            {
+                "name": "Preto",
+                "color": "#000000",
+                "level": 86
+            },
+            {
+                "name": "Kit do fusor",
+                "color": "#808080",
+                "level": 0
+            },
+            {
+                "name": "Kit do alimentador de documentos",
+                "color": "#A0A0A0",
+                "level": 90
+            }
+        ],
+        "lastUpdate": "2025-10-27 16:40:42",
         "errorMessage": null
     }
 ]
