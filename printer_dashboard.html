@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressoras</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 80px;
+        }
+
+        /* Header */
+        .header {
+            background: #bacf34;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-header {
+            position: relative;
+        }
+
+        .search-header input {
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            width: 300px;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-header input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .search-header i {
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.3);
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        /* Filters Section */
+        .filters-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .filters-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #666;
+        }
+
+        .btn-outline:hover {
+            background: #f8f9fa;
+            border-color: #bbb;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .stat-title {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .stat-icon.online {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .stat-icon.alerta {
+            background: #fff3cd;
+            color: #f39c12;
+        }
+
+        .stat-icon.error {
+            background: #f8d7da;
+            color: #e74c3c;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+      
+        /* Refresh btn */
+
+        .refresh-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .refresh-btn:hover {
+            background: #a8b830;
+            transform: translateY(-1px);
+        }
+
+        .refresh-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Toast Styles */
+        .toast-container {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+        }
+
+        .toast {
+            background: white;
+            border-radius: 8px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-left: 4px solid;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 300px;
+            animation: slideInRight 0.3s ease-out;
+            position: relative;
+        }
+
+        .toast.error {
+            border-left-color: #e74c3c;
+        }
+
+        .toast.alerta {
+            border-left-color: #f39c12;
+        }
+
+        .toast.success {
+            border-left-color: #27ae60;
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .toast-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+
+        .toast.error .toast-icon {
+            background: #e74c3c;
+        }
+
+        .toast.alerta .toast-icon {
+            background: #f39c12;
+        }
+
+        .toast.success .toast-icon {
+            background: #27ae60;
+        }
+
+        .toast-message {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .toast-text {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .toast-close:hover {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Table Section */
+        .table-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .table-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .printers-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .printers-table th {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 1px solid #e9ecef;
+            white-space: nowrap;
+        }
+
+        .printers-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f1f3f4;
+            vertical-align: middle;
+        }
+
+        .printers-table tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .printers-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .printer-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .printer-ip {
+            font-family: 'Courier New', monospace;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-online {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .status-alerta {
+            background: #fff3cd;
+            color: #f39c12;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #e74c3c;
+        }
+
+        .toner-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-width: 200px;
+        }
+
+        .toner-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toner-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .toner-bar {
+            flex: 1;
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .toner-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .toner-percentage {
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 35px;
+            text-align: right;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            background: white;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-icon:hover {
+            background: #f8f9fa;
+            border-color: #bbb;
+            transform: translateY(-1px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            scrollbar-width: none;
+        }
+
+        .modal::-webkit-scrollbar {
+            display: none; 
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            scrollbar-width: none; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: #bacf34;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .close {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+
+        .close:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .printer-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 4px solid #3498db;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .toner-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .toner-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .toner-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .toner-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .toner-color-large {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .toner-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .toner-level-large {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-left: auto;
+        }
+
+        .toner-bar-large {
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .toner-fill-large {
+            height: 100%;
+            transition: width 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .toner-status {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .status-ok {
+            color: #27ae60;
+        }
+
+        .status-low {
+            color: #f39c12;
+        }
+
+        .status-critical {
+            color: #e74c3c;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .pagination-info {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .pagination-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .page-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .page-btn:hover {
+            background: #f8f9fa;
+        }
+
+        .page-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        /* Loading States */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e9ecef;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-header input {
+                width: 100%;
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                font-size: 0.9rem;
+            }
+
+            .printers-table th,
+            .printers-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .printer-details {
+                grid-template-columns: 1fr;
+            }
+
+            .toner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .toast-container {
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+
+            .toast {
+                min-width: auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-print"></i>
+                Impressoras
+            </div>
+                <div class="header-actions">
+                    <div class="search-header">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar por Asset Tag, Nome, IP..." id="globalSearch">
+                    </div>
+                    <button class="refresh-btn" id="refreshBtn">
+                        <i class="fas fa-sync-alt" id="refreshIcon"></i>
+                        Atualizar
+                    </button>
+                </div>
+        </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+         <nav class="breadcrumb">
+             <a href="..\index.html"><i class="fas fa-home"></i> Home</a>
+             <i class="fas fa-chevron-right"></i>
+             <span>Impressoras</span>
+        </nav>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card" onclick="showPrintersByStatus('all')">
+                <div class="stat-header">
+                    <div class="stat-title">Total de Impressoras</div>
+                    <div class="stat-icon online">
+                        <i class="fas fa-print"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="totalPrinters">0</div>
+            </div>
+            <div class="stat-card" onclick="showPrintersByStatus('online')">
+                <div class="stat-header">
+                    <div class="stat-title">Saudáveis</div>
+                    <div class="stat-icon online">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="onlinePrinters">0</div>
+            </div>
+            <div class="stat-card" onclick="showPrintersByStatus('low_toner')">
+                <div class="stat-header">
+                    <div class="stat-title">Toner Baixo</div>
+                    <div class="stat-icon alerta">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="lowTonerPrinters">0</div>
+            </div>
+            <div class="stat-card" onclick="showPrintersByStatus('error')">
+                <div class="stat-header">
+                    <div class="stat-title">Com Problemas</div>
+                    <div class="stat-icon error">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="errorPrinters">0</div>
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="statusFilter">
+                        <option value="">Todos os Status</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                        <option value="error">Com Problemas</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Localização</label>
+                    <select id="locationFilter">
+                        <option value="">Todas as Localizações</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Cor do Toner</label>
+                    <select id="tonerColorFilter">
+                        <option value="">Todas as Cores</option>
+                        <option value="amarelo">Amarelo</option>
+                        <option value="magenta">Magenta</option>
+                        <option value="ciano">Ciano</option>
+                        <option value="preto">Preto</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Operador</label>
+                    <select id="operatorFilter">
+                        <option value="">Selecionar</option>
+                        <option value=">">Maior que</option>
+                        <option value="<">Menor que</option>
+                        <option value=">=">Maior e igual que</option>
+                        <option value="<=">Menor e igual que</option>
+                        <option value="=">Igual</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Percentual (%)</label>
+                    <input type="number" id="percentageFilter" placeholder="0-100" min="0" max="100">
+                </div>
+            </div>
+            <div class="filters-actions">
+                <button class="btn btn-outline" id="clearFilters">
+                    <i class="fas fa-times"></i>
+                    Limpar Filtros
+                </button>
+                <button class="btn btn-primary" id="applyFilters">
+                    <i class="fas fa-filter"></i>
+                    Aplicar Filtros
+                </button>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-section">
+            <div class="table-header">
+                <div class="table-title">Impressoras (<span id="visibleCount">0</span>)</div>
+                    <div class="search-header">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar por Asset Tag, Nome, IP..." id="globalSearch">
+                </div>
+                <div class="table-actions">
+                    <select id="rowsPerPage">
+                        <option value="20">20 por página</option>
+                        <option value="25">45 por página</option>
+                        <option value="50">70 por página</option>
+                        <option value="100">90 por página</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-container">
+                <div id="loadingState" class="loading">
+                    <div class="spinner"></div>
+                    Carregando dados das impressoras...
+                </div>
+                <table class="printers-table" id="printersTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectAll"></th>
+                            <th>Nome da Impressora</th>
+                            <th>Asset Tag</th>
+                            <th>Serial</th>
+                            <th>Modelo</th>
+                            <th>Localização</th>
+                            <th>Status</th>
+                            <th>Níveis de Toner</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="printersTableBody">
+                        <!-- Conteúdo será gerado dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <div class="pagination-info">
+                    Mostrando <span id="showingStart">1</span> a <span id="showingEnd">10</span> de <span id="totalRows">0</span> impressoras
+                </div>
+                <div class="pagination-controls" id="paginationControls">
+                    <!-- Controles de paginação serão gerados dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Detalhes da Impressora -->
+    <div id="printerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Detalhes da Impressora</h2>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="printer-details" id="printerDetails">
+                    <!-- Detalhes serão preenchidos dinamicamente -->
+                </div>
+                <div class="toner-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-tint"></i>
+                        Níveis de Suprimentos
+                    </h3>
+                    <div class="toner-grid" id="tonerGrid">
+                        <!-- Toners serão preenchidos dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Status -->
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="statusModalTitle">Impressoras por Status</h2>
+                <button class="close" onclick="closeStatusModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="statusModalContent">
+                    <!-- Conteúdo será preenchido dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reportContent" style="display:none;">
+        <h1>Relatório de Impressoras</h1>
+        
+        <h2>Resumo</h2>
+        <div>
+            Total: <span id="r_totalPrinters"></span> |
+            Online: <span id="r_onlinePrinters"></span> |
+            Erro: <span id="r_errorPrinters"></span> |
+            Toner baixo: <span id="r_lowTonerPrinters"></span>
+        </div>
+
+        <h2>Status das Impressoras</h2>
+        <canvas id="statusChart"></canvas>
+
+        <h2>Relatório Detalhado</h2>
+        <div id="r_table"></div>
+     </div>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Variáveis globais
+        let printersData = [];
+        let filteredData = [];
+        let currentPage = 1;
+        let rowsPerPage = 20;
+
+    // Função para carregar os dados das impressoras (ajuste conforme sua lógica atual)
+
+    const refreshBtn = document.getElementById('refreshBtn');
+    const refreshIcon = document.getElementById('refreshIcon');
+
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('printersTable').style.display = 'table';   
+
+    async function loadPrinterData() {
+        try {
+            refreshBtn.disabled = true;
+            refreshIcon.classList.add('loading');
+
+            const timestamp = new Date().getTime();
+            const response = await fetch(`collected_data.json?t=${timestamp}`, {
+                cache: 'no-cache',
+                headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+            });
+
+            if (!response.ok) throw new Error("Erro ao carregar dados");
+
+            const printers = await response.json();
+
+            
+            updateStats(printers);
+            printersData = printers;
+            filteredData = [...printersData];
+            updateStats();
+            renderTable();
+            populateLocationFilter();
+            checkLowToners();
+
+        } catch (error) {
+            console.error("Erro:", error);
+        } finally {
+            refreshBtn.disabled = false;
+            refreshIcon.classList.remove('loading');
+        }
+    }
+
+    refreshBtn.addEventListener('click', loadPrinterData);
+
+        // Função para popular filtro de localização
+        function populateLocationFilter() {
+            const locations = [...new Set(printersData.map(p => p.location))];
+            const locationFilter = document.getElementById('locationFilter');
+            locationFilter.innerHTML = '<option value="">Todas as Localizações</option>';
+            
+            locations.forEach(location => {
+                const option = document.createElement('option');
+                option.value = location;
+                option.textContent = location;
+                locationFilter.appendChild(option);
+            });
+        }
+
+        // Função para filtrar apenas toners (excluir Kit de Fusor e Kit do alimentador)
+        function getTonerOnly(toners) {
+            return toners.filter(toner => {
+                const name = toner.name.toLowerCase();
+                return !name.includes('fusor') && !name.includes('alimentador') && !name.includes('fuse') && !name.includes('document');
+            });
+        }
+
+        // Função para obter status do toner
+        function getTonerStatus(level) {
+            if (level <= 0) return { class: 'status-critical', text: 'Crítico' };
+            if (level <= 10) return { class: 'status-low', text: 'Baixo' };
+            return { class: 'status-ok', text: 'OK' };
+        }
+
+        // Função para verificar se deve mostrar notificação de toner
+        function shouldShowTonerNotification(printerSerial, tonerName) {
+            if (printerSerial === "BRBSR74075") {
+                const tonerLower = tonerName.toLowerCase();
+                if (tonerLower.includes("magenta") || tonerLower.includes("ciano") || 
+                    tonerLower.includes("cyan") || tonerLower.includes("amarelo") || 
+                    tonerLower.includes("yellow")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Função para obter cor do status
+        function getStatusColor(printer) {
+            if (printer.status === 'error') return 'error';
+            
+            const toners = getTonerOnly(printer.toners);
+            const hasZeroToner = toners.some(t => t.level === 0);
+            const hasLowToner = toners.some(t => t.level <= 10);
+            
+            if (hasZeroToner) return 'error';
+            if (hasLowToner) return 'alerta';
+            return 'online';
+        }
+
+        
+
+        // Função para criar toast
+        function createToast(type, title, message, duration = 10000) {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            const iconMap = {
+                'error': '!',
+                'alerta': '⚠',
+                'success': '✓'
+            };
+            
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <div class="toast-icon">${iconMap[type] || '!'}</div>
+                    <div class="toast-message">
+                        <div class="toast-title">${title}</div>
+                        <div class="toast-text">${message}</div>
+                    </div>
+                </div>
+                <button class="toast-close" onclick="removeToast(this.parentElement)">&times;</button>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Auto remove after duration
+            setTimeout(() => {
+                removeToast(toast);
+            }, duration);
+        }
+
+        // Função para remover toast
+        function removeToast(toast) {
+            if (toast && toast.parentElement) {
+                toast.style.animation = 'slideOutRight 0.3s ease-out';
+                setTimeout(() => {
+                    if (toast.parentElement) {
+                        toast.parentElement.removeChild(toast);
+                    }
+                }, 300);
+            }
+        }
+
+        // Função para verificar toners baixos e criar notificações
+        function checkLowToners() {
+            printersData.forEach(printer => {
+                const toners = getTonerOnly(printer.toners);
+                
+                toners.forEach(toner => {
+                    if (shouldShowTonerNotification(printer.serial, toner.name)) {
+                        if (toner.level === 0) {
+                            createToast('error', 'Toner Esgotado', 
+                                `${printer.name} - ${toner.name} está em 0%`);
+                        } else if (toner.level <= 10) {
+                            createToast('alerta', 'Toner Baixo', 
+                                `${printer.name} - ${toner.name} está em ${toner.level}%`);
+                        }
+                    }
+                });
+                
+                if (printer.status === 'error') {
+                    createToast('error', 'Impressora Offline', 
+                        `${printer.name} está com problemas de conexão`);
+                }
+            });
+        }
+
+        // Função para mostrar impressoras por status
+        function showPrintersByStatus(status) {
+            let filteredPrinters = [];
+            let title = '';
+            
+            switch(status) {
+                case 'all':
+                    filteredPrinters = printersData;
+                    title = 'Todas as Impressoras';
+                    break;
+                case 'online':
+                    filteredPrinters = printersData.filter(p => p.status === 'online');
+                    title = 'Impressoras Online';
+                    break;
+                case 'error':
+                    filteredPrinters = printersData.filter(p => p.status === 'error');
+                    title = 'Impressoras com Problemas';
+                    break;
+                case 'low_toner':
+                    filteredPrinters = printersData.filter(p => {
+                        const toners = getTonerOnly(p.toners);
+                        return toners.some(t => t.level <= 10);
+                    });
+                    title = 'Impressoras com Toner Baixo';
+                    break;
+            }
+            
+            document.getElementById('statusModalTitle').textContent = title;
+            const content = document.getElementById('statusModalContent');
+            
+            if (filteredPrinters.length === 0) {
+                content.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">Nenhuma impressora encontrada nesta categoria.</p>';
+            } else {
+                content.innerHTML = `
+                    <div style="display: grid; gap: 1rem;">
+                        ${filteredPrinters.map(printer => `
+                            <div style="background: #f8f9fa; border-radius: 8px; padding: 1rem; border-left: 4px solid ${getStatusColorHex(getStatusColor(printer))};">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <strong>${printer.name}</strong>
+                                    <span class="status-badge status-${getStatusColor(printer)}">${getStatusText(printer.status)}</span>
+                                </div>
+                                <div style="color: #666; font-size: 0.9rem;">
+                                    <div>Asset Tag: ${printer.assetTag} | Serial: ${printer.serial}</div>
+                                    <div>IP: ${printer.ip} | Localização: ${printer.location}</div>
+                                </div>
+                                ${printer.toners.length > 0 ? `
+                                    <div style="margin-top: 0.5rem;">
+                                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                            ${getTonerOnly(printer.toners).map(toner => `
+                                                <span style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid #ddd;">
+                                                    <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: ${toner.color}; margin-right: 0.25rem;"></span>
+                                                    ${toner.name}: ${toner.level}%
+                                                </span>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            document.getElementById('statusModal').style.display = 'block';
+        }
+
+        function getStatusColorHex(status) {
+            switch(status) {
+                case 'error': return '#e74c3c';
+                case 'alerta': return '#f39c12';
+                case 'online': return '#27ae60';
+                default: return '#3498db';
+            }
+        }
+
+        function getStatusText(status) {
+            switch(status) {
+                case 'online': return 'Online';
+                case 'error': return 'Erro';
+                case 'offline': return 'Offline';
+                default: return status;
+            }
+        }
+
+        function closeStatusModal() {
+            document.getElementById('statusModal').style.display = 'none';
+        }
+
+        function updateStats() {
+            const total = printersData.length;
+            const online = printersData.filter(p => p.status === 'online').length;
+            const error = printersData.filter(p => p.status === 'error').length;
+            const lowToner = printersData.filter(p => {
+                const toners = getTonerOnly(p.toners);
+                return toners.some(t => t.level <= 10);
+            }).length;
+
+            document.getElementById('totalPrinters').textContent = total;
+            document.getElementById('onlinePrinters').textContent = online;
+            document.getElementById('errorPrinters').textContent = error;
+            document.getElementById('lowTonerPrinters').textContent = lowToner;
+            document.getElementById('visibleCount').textContent = filteredData.length;
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('printersTableBody');
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const pageData = filteredData.slice(start, end);
+
+            tbody.innerHTML = '';
+
+            if (pageData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9" class="loading">
+                            Nenhuma impressora encontrada com os filtros aplicados.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            pageData.forEach(printer => {
+                const statusColor = getStatusColor(printer);
+                
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td><input type="checkbox" value="${printer.id}"></td>
+                    <td>
+                        <div class="printer-name">${printer.name}</div>
+                        <div class="printer-ip">${printer.ip}</div>
+                    </td>
+                    <td>${printer.assetTag}</td>
+                    <td>${printer.serial}</td>
+                    <td>${printer.model}</td>
+                    <td>${printer.location}</td>
+                    <td>
+                        <span class="status-badge status-${statusColor}">
+                            ${getStatusText(printer.status)}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="toner-levels">
+                            ${getTonerOnly(printer.toners).map(toner => `
+                                <div class="toner-item">
+                                    <div class="toner-color" style="background-color: ${toner.color}"></div>
+                                    <div class="toner-bar">
+                                        <div class="toner-fill" style="width: ${toner.level}%; background-color: ${toner.color}"></div>
+                                    </div>
+                                    <div class="toner-percentage">${toner.level}%</div>
+                                </div>
+                            `).join("")}
+                            ${getTonerOnly(printer.toners).length === 0 ? '<span style="color: #999;">Dados indisponíveis</span>' : ''}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon" onclick="viewPrinter(${printer.id})" title="Ver detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" onclick="openPrinterPage('${printer.ip}')" title="Abrir página da impressora">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            updatePaginationInfo();
+            renderPaginationControls();
+        }
+
+            function setupEventListeners() {
+                function applyGlobalSearch(searchTerm) {
+                    filteredData = printersData.filter(printer => {
+                        return printer.name.toLowerCase().includes(searchTerm) ||
+                            printer.assetTag.toLowerCase().includes(searchTerm) ||
+                            printer.ip.toLowerCase().includes(searchTerm) ||
+                            printer.serial.toLowerCase().includes(searchTerm) ||
+                            printer.location.toLowerCase().includes(searchTerm);
+                    });
+                    currentPage = 1;
+                    renderTable();
+                }
+
+                // Header search
+                const globalSearchHeader = document.getElementById('globalSearchHeader');
+                if (globalSearchHeader) {
+                    globalSearchHeader.addEventListener('input', function() {
+                        applyGlobalSearch(this.value.toLowerCase());
+                    });
+                }
+
+                // Table search
+                const globalSearchTable = document.getElementById('globalSearchTable');
+                if (globalSearchTable) {
+                    globalSearchTable.addEventListener('input', function() {
+                        applyGlobalSearch(this.value.toLowerCase());
+                    });
+                }
+            }
+
+
+
+            // Filtros
+            document.getElementById('applyFilters').addEventListener('click', applyFilters);
+            document.getElementById('clearFilters').addEventListener('click', clearFilters);
+            
+            // Rows per page
+            document.getElementById('rowsPerPage').addEventListener('change', function() {
+                rowsPerPage = parseInt(this.value);
+                currentPage = 1;
+                renderTable();
+            });
+
+            // Select all
+            document.getElementById('selectAll').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('#printersTableBody input[type="checkbox"]');
+                checkboxes.forEach(cb => cb.checked = this.checked);
+            });
+        
+
+        function applyFilters() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const locationFilter = document.getElementById('locationFilter').value;
+            const tonerColorFilter = document.getElementById('tonerColorFilter').value;
+            const operatorFilter = document.getElementById('operatorFilter').value;
+            const percentageFilter = document.getElementById('percentageFilter').value;
+
+            filteredData = printersData.filter(printer => {
+                // Status filter
+                if (statusFilter && printer.status !== statusFilter) {
+                    return false;
+                }
+
+                // Location filter
+                if (locationFilter && printer.location !== locationFilter) {
+                    return false;
+                }
+
+                // Toner color and percentage filters
+                if (tonerColorFilter && operatorFilter && percentageFilter !== '') {
+                    const percentage = parseFloat(percentageFilter);
+                    const toners = getTonerOnly(printer.toners);
+                    const matchingToners = toners.filter(toner => {
+                        const colorMatch = toner.name.toLowerCase().includes(tonerColorFilter);
+                        if (!colorMatch) return false;
+
+                        switch (operatorFilter) {
+                            case '>': return toner.level > percentage;
+                            case '<': return toner.level < percentage;
+                            case '>=': return toner.level >= percentage;
+                            case '<=': return toner.level <= percentage;
+                            case '=': return toner.level === percentage;
+                            default: return true;
+                        }
+                    });
+
+                    if (matchingToners.length === 0) {
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+
+            currentPage = 1;
+            updateStats();
+            renderTable();
+        }
+
+        function clearFilters() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('locationFilter').value = '';
+            document.getElementById('tonerColorFilter').value = '';
+            document.getElementById('operatorFilter').value = '';
+            document.getElementById('percentageFilter').value = '';
+            
+            filteredData = [...printersData];
+            currentPage = 1;
+            updateStats();
+            renderTable();
+        }
+
+        function updatePaginationInfo() {
+            const start = (currentPage - 1) * rowsPerPage + 1;
+            const end = Math.min(currentPage * rowsPerPage, filteredData.length);
+            
+            document.getElementById('showingStart').textContent = filteredData.length > 0 ? start : 0;
+            document.getElementById('showingEnd').textContent = end;
+            document.getElementById('totalRows').textContent = filteredData.length;
+        }
+
+        function renderPaginationControls() {
+            const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+            const paginationControls = document.getElementById('paginationControls');
+            
+            paginationControls.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            // Previous button
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTable();
+                }
+            };
+            paginationControls.appendChild(prevBtn);
+            
+            // Page numbers
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(totalPages, currentPage + 2);
+            
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageBtn.textContent = i;
+                pageBtn.onclick = () => {
+                    currentPage = i;
+                    renderTable();
+                };
+                paginationControls.appendChild(pageBtn);
+            }
+            
+            // Next button
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderTable();
+                }
+            };
+            paginationControls.appendChild(nextBtn);
+        }
+
+        function viewPrinter(id) {
+            const printer = printersData.find(p => p.id === id);
+            if (!printer) return;
+
+            document.getElementById('modalTitle').textContent = `${printer.name} - Detalhes`
+
+            // Preencher detalhes básicos
+            const detailsContainer = document.getElementById('printerDetails');
+            detailsContainer.innerHTML = `
+                <div class="detail-card">
+                    <div class="detail-label">Nome</div>
+                    <div class="detail-value">${printer.name}</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">Asset Tag</div>
+                    <div class="detail-value">${printer.assetTag}</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">Número de Série</div>
+                    <div class="detail-value">${printer.serial}</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">Modelo</div>
+                    <div class="detail-value">${printer.model}</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">Localização</div>
+                    <div class="detail-value">${printer.location}</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">Endereço IP</div>
+                    <div class="detail-value">${printer.ip}</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">Status</div>
+                    <div class="detail-value">
+                        <span class="status-badge status-${getStatusColor(printer)}">${getStatusText(printer.status)}</span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-label">Última Atualização</div>
+                    <div class="detail-value">${printer.lastUpdate}</div>
+                </div>
+                ${printer.errorMessage ? `
+                <div class="detail-card">
+                    <div class="detail-label">Mensagem de Erro</div>
+                    <div class="detail-value" style="color: #e74c3c;">${printer.errorMessage}</div>
+                </div>
+                ` : ''}
+            `;
+
+            // Preencher toners (todos, incluindo kits)
+            const tonerContainer = document.getElementById('tonerGrid');
+            tonerContainer.innerHTML = '';
+
+            printer.toners.forEach(toner => {
+                const status = getTonerStatus(toner.level);
+                const tonerCard = document.createElement('div');
+                tonerCard.className = 'toner-card';
+                tonerCard.innerHTML = `
+                    <div class="toner-header">
+                        <div class="toner-color-large" style="background-color: ${toner.color}"></div>
+                        <div class="toner-name">${toner.name}</div>
+                        <div class="toner-level-large">${toner.level}%</div>
+                    </div>
+                    <div class="toner-bar-large">
+                        <div class="toner-fill-large" style="width: ${toner.level}%; background-color: ${toner.color}"></div>
+                    </div>
+                    <div class="toner-status ${status.class}">${status.text}</div>
+                `;
+                tonerContainer.appendChild(tonerCard);
+            });
+
+            // Mostrar modal
+            document.getElementById('printerModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('printerModal').style.display = 'none';
+        }
+
+        function openPrinterPage(ip) {
+            window.open(`http://${ip}`, '_blank');
+        }
+
+        // Inicialização quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPrinterData();
+        });
+
+            function generateCharts() {
+        const ctx = document.getElementById('statusChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+            labels: ['Online', 'Erro', 'Toner baixo'],
+            datasets: [{
+                data: [
+                printersData.filter(p => p.status === 'online').length,
+                printersData.filter(p => p.status === 'error').length,
+                printersData.filter(p => getTonerOnly(p.toners).some(t => t.level <= 10)).length
+                ],
+                backgroundColor: ['#27ae60', '#e74c3c', '#f39c12']
+            }]
+            }
+        });
+        }
+
+        // Fechar modal ao clicar fora do conteúdo
+    window.addEventListener('click', function(event) {
+    const printerModal = document.getElementById('printerModal');
+    const statusModal = document.getElementById('statusModal');
+
+    if (event.target === printerModal) {
+        closeModal();
+    }
+    if (event.target === statusModal) {
+        closeStatusModal();
+    }
+});
+
+    </script>
+</body>
+<footer>
+  <div style="color: grey; opacity: 0.2; font-size: 12px; text-align: center; margin-bottom: 20px;">
+    <p>By Felps</p>
+  </div>
+</footer>
+</html>
