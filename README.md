@@ -14,7 +14,6 @@ Sistema local de **monitoramento de impressoras corporativas**, que coleta dados
 - [Estrutura dos Arquivos](#-estrutura-dos-arquivos)
 - [Funcionalidades do Painel Web](#-funcionalidades-do-painel-web)
 - [Erros Comuns](#-erros-comuns)
-- [Licença](#-licença)
 
 ---
 
@@ -171,14 +170,6 @@ E acesse:
 | `Erro ao ler printer_data.json` | Arquivo ausente ou com erro de sintaxe | Verifique o formato JSON |
 | `Não foi possível extrair dados de toner` | Impressora com interface HTML diferente da HP | Ajuste os prefixos no `config.json` |
 | `collected_data.json` vazio | Nenhuma impressora acessível | Teste o acesso direto via navegador |
-
----
-
-## 📜 Licença
-
-Este projeto é distribuído livremente para uso interno e educacional.  
-Créditos e autoria: **Felipe Lublanski**  
-GitHub: [salazharS](https://github.com/salazharS)
 
 ---
 
