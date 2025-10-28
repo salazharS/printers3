@@ -173,5 +173,15 @@ E acesse:
 
 ---
 
+## 🖼️ Capturas de Tela 
+
+<img width="1970" height="617" alt="image" src="https://github.com/user-attachments/assets/3ac44487-9105-46d0-8385-c994e28b06f5" />
+> - `printer_collector.pyl` — Executa a coleta de dados das impressoras
+
+<img width="1898" height="925" alt="image" src="https://github.com/user-attachments/assets/ca5ab547-15a0-4480-83da-6a4b96280829" />
+> - `printer_dashboard.html` — Dashboard do printers 3
+
+---
+
 🧠 **Resumo:**  
 > Execute o `printer_collector.py` → ele gera o `collected_data.json` → abra o `printer_dashboard.html` e veja tudo em tempo real.
