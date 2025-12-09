@@ -12,8 +12,8 @@ Sistema local de **monitoramento de impressoras corporativas**, que coleta dados
 - [Como Executar](#-como-executar)
 - [Funcionamento Técnico e Ajustes Necessários](#-funcionamento-técnico)
 - [Funcionalidades do Painel Web](#-funcionalidades-do-painel-web)
-- [Estrutura dos Arquivos](#-estrutura-dos-arquivos)
 - [Funcionalidades do Painel Web](#-funcionalidades-do-painel-web)
+- [Capturas de Tela](#-capturas-de-tela)
 
 ---
 
