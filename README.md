@@ -6,14 +6,13 @@ Sistema local de **monitoramento de impressoras corporativas**, que coleta dados
 
 ## 📋 Sumário
 
-- [Visão Geral](#visao-geral)
-- [Arquitetura do Projeto](#arquitetura-do-projeto)
-- [Instalação e Configuração](#instalacao-e-configuracao)
-- [Como Executar](#como-executar)
-- [Funcionamento Técnico e Ajustes Necessários](#funcionamento-tecnico-e-ajustes-necessarios)
-- [Funcionalidades do Painel Web](#funcionalidades-do-painel-web)
-- [Funcionalidades do Painel Web](#funcionalidades-do-painel-web-1)
-- [Capturas de Tela](#capturas-de-tela)
+- [Visão Geral](#-visao-geral)
+- [Arquitetura do Projeto](#-arquitetura-do-projeto)
+- [Instalação e Configuração](#-instalacao-e-configuracao)
+- [Como Executar](#-como-executar)
+- [Funcionamento Técnico e Ajustes Necessários](#-funcionamento-tecnico-e-ajustes-necessarios)
+- [Funcionalidades do Painel Web](#-funcionalidades-do-painel-web)
+- [Capturas de Tela](#-capturas-de-tela)
 ---
 
 ## 🚀 Visão Geral
