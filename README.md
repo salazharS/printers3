@@ -70,6 +70,7 @@ pip install requests request
 ### 3. Configurar as impressoras
 
 Edite o arquivo `printer_data.json` e adicione suas impressoras conforme o modelo abaixo:
+Não possui limites de equipamentos.
 
 ```json
 [
