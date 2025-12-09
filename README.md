@@ -13,7 +13,6 @@ Sistema local de **monitoramento de impressoras corporativas**, que coleta dados
 - [Funcionamento Técnico](#-funcionamento-técnico)
 - [Estrutura dos Arquivos](#-estrutura-dos-arquivos)
 - [Funcionalidades do Painel Web](#-funcionalidades-do-painel-web)
-- [Erros Comuns](#-erros-comuns)
 
 ---
 
@@ -78,7 +77,7 @@ Edite o arquivo `printer_data.json` e adicione suas impressoras conforme o model
     "serial": "BRBSR7409G",
     "model": "HP LaserJet Pro",
     "location": "Matriz",
-    "ip": "10.202.171.1"
+    "ip": "10.100.1.1"
   },
   {
     "id": 2,
@@ -86,7 +85,7 @@ Edite o arquivo `printer_data.json` e adicione suas impressoras conforme o model
     "serial": "MXBCQC9006",
     "model": "HP LaserJet Pro",
     "location": "Filial",
-    "ip": "10.202.171.2"
+    "ip": "10.100.1.2"
   }
 ]
 ```
@@ -111,9 +110,7 @@ Durante a execução:
 
 ### 2. Visualizar o painel
 
-Abra o arquivo **`printer_dashboard.html`** no navegador.
-
-Se desejar hospedar localmente:
+Para hospede localmente:
 ```bash
 python -m http.server 8080
 ```
@@ -126,7 +123,7 @@ E acesse:
 
 1. O script lê `printer_data.json`.
 2. Para cada impressora:
-   - Faz uma requisição HTTP ao IP (`http://10.x.x.x`).
+   - Faz uma requisição HTTP ao IP (`http://192.168.1.X`).
    - Usa **BeautifulSoup** para extrair IDs do HTML (`SupplyName0`, `SupplyPLR0`, etc.).
    - Converte os dados em JSON estruturado.
 3. Determina o **status**:
@@ -162,17 +159,6 @@ E acesse:
 
 ---
 
-## ⚠️ Erros Comuns
-
-| Problema | Causa provável | Solução |
-|-----------|----------------|----------|
-| `Erro de conexão: Timeout` | Impressora desligada ou IP incorreto | Verifique IP e rede |
-| `Erro ao ler printer_data.json` | Arquivo ausente ou com erro de sintaxe | Verifique o formato JSON |
-| `Não foi possível extrair dados de toner` | Impressora com interface HTML diferente da HP | Ajuste os prefixos no `config.json` |
-| `collected_data.json` vazio | Nenhuma impressora acessível | Teste o acesso direto via navegador |
-
----
-
 ## 🖼️ Capturas de Tela 
 
 <img width="1970" height="617" alt="image" src="https://github.com/user-attachments/assets/3ac44487-9105-46d0-8385-c994e28b06f5" />
@@ -184,4 +170,4 @@ E acesse:
 ---
 
 🧠 **Resumo:**  
-> Execute o `printer_collector.py` → ele gera o `collected_data.json` → abra o `printer_dashboard.html` e veja tudo em tempo real.
+> Execute o `printer_collector.py` → ele gera o `collected_data.json` → hospede localmente: `python -m http.server 8080` → acesse [http://localhost:8080/printer_dashboard.html](http://localhost:8080/printer_dashboard.html) 
