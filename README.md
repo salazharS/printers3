@@ -186,4 +186,4 @@ E acesse:
 ---
 
 🧠 **Resumo:**  
-> Execute o `printer_collector.py` → ele gera o `collected_data.json` → hospede localmente: `python -m http.server 8080` → acesse [http://localhost:8080/printer_dashboard.html](http://localhost:8080/printer_dashboard.html) 
+> Edite `printer_data.json`, execute o `printer_collector.py` (após customizar os ids) → ele gera o `collected_data.json` → hospede localmente: `python -m http.server 8080` → acesse [http://localhost:8080/printer_dashboard.html](http://localhost:8080/printer_dashboard.html) 
