@@ -76,19 +76,29 @@ Não possui limites de equipamentos.
 [
   {
     "id": 1,
-    "name": "Escritório Administrativo",
-    "serial": "BRBSR7409G",
+    "name": "Impressora do Escritorio",
+    "assetTag": "7172",
+    "serial": "ST7812",
     "model": "HP LaserJet Pro",
-    "location": "Matriz",
-    "ip": "10.100.1.1"
+    "location": "São Paulo",
+    "ip": "192.168.15.2",
+    "status": "",
+    "toners": [],
+    "lastUpdate": "",
+    "errorMessage": ""
   },
   {
     "id": 2,
-    "name": "Financeiro",
-    "serial": "MXBCQC9006",
+    "name": "Impressora do CD",
+    "assetTag": "8182",
+    "serial": "ST7813",
     "model": "HP LaserJet Pro",
-    "location": "Filial",
-    "ip": "10.100.1.2"
+    "location": "Cajamar",
+    "ip": "192.168.15.3",
+    "status": "",
+    "toners": [],
+    "lastUpdate": "",
+    "errorMessage": ""
   }
 ]
 ```
