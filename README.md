@@ -1,4 +1,4 @@
-# 🖨️ Printer Dashboard & Collector
+# 🖨️ Printers3
 
 Sistema local de **monitoramento de impressoras corporativas**, que coleta dados automaticamente (status, nível de toner, conectividade) e exibe tudo em um **painel web interativo**.
 
