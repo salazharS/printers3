@@ -10,7 +10,8 @@ Sistema local de **monitoramento de impressoras corporativas**, que coleta dados
 - [Arquitetura do Projeto](#-arquitetura-do-projeto)
 - [Instalação e Configuração](#-instalação-e-configuração)
 - [Como Executar](#-como-executar)
-- [Funcionamento Técnico](#-funcionamento-técnico)
+- [Funcionamento Técnico e Ajustes Necessários](#-funcionamento-técnico)
+- [Funcionalidades do Painel Web](#-funcionalidades-do-painel-web)
 - [Estrutura dos Arquivos](#-estrutura-dos-arquivos)
 - [Funcionalidades do Painel Web](#-funcionalidades-do-painel-web)
 
@@ -132,6 +133,9 @@ E acesse:
    - 🔴 `error` → Impressora inacessível.
 4. Atualiza o `collected_data.json` com data/hora e erros, se houver.
 5. O painel web lê esse arquivo e mostra tudo em tempo real (sem precisar atualizar manualmente).
+6. hp_ids são ids definidos na pagia http da propria impressora, para outros modelosm substitua o campo abaixo pelo id correto de cada fabricante 
+ <img width="616" height="122" alt="image" src="https://github.com/user-attachments/assets/1037c2ce-e5c7-4b8c-a4f7-900b4aed1ad4" />
+
 
 ---
 
