@@ -144,6 +144,7 @@ E acesse:
 4. Atualiza o `collected_data.json` com data/hora e erros, se houver.
 5. O painel web lê esse arquivo e mostra tudo em tempo real (sem precisar atualizar manualmente).
 6. hp_ids são ids definidos na pagia http da propria impressora, para outros modelosm substitua o campo abaixo pelo id correto de cada fabricante 
+6. `hp_ids` são IDs definidos na página HTTP da própria impressora. Para outros modelos, substitua os prefixos pelo ID correto de cada fabricante. Se a página não usar os mesmos elementos (por exemplo, `span` para o percentual e `h2` para o nome), além de trocar o ID pode ser necessário ajustar os seletores no código. 
  <img width="616" height="122" alt="image" src="https://github.com/user-attachments/assets/1037c2ce-e5c7-4b8c-a4f7-900b4aed1ad4" />
 
 
