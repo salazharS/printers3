@@ -25,7 +25,7 @@ Este projeto realiza a **coleta automatizada de informações das impressoras da
 ## 🧱 Arquitetura do Projeto
 
 ```
-📂 printer-dashboard/
+📂 printers3/
  ├── printer_collector.py       # Script principal de coleta (Python)
  ├── printer_data.json          # Lista base de impressoras e IPs
  ├── collected_data.json        # Resultado consolidado da coleta
