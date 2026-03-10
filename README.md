@@ -61,8 +61,8 @@ python --version
 
 No terminal (cmd ou PowerShell), execute:
 ```bash
-pip install requests bs4
-pip install requests request
+pip install bs4
+pip install request
 ```
 
 ### 3. Configurar as impressoras
